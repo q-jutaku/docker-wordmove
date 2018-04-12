@@ -1,4 +1,4 @@
-Docker image to run [Wordmove](https://welaika.github.io/wordmove/).
+Docker image to run [Wordmove](https://wptools.it/wordmove/).
 
 [![Slack channel](https://img.shields.io/badge/Slack-WP--Hub-blue.svg)](https://wphub-auto-invitation.herokuapp.com/)
 
