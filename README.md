@@ -53,5 +53,5 @@ Run `sudo su` and use `wordmove` as the password.
 ## TODO
 
 * Base this image on a smaller image than Ubuntu
-* Configure Webhooks to build this image on Docker Hub when a new version of
-  the `wordmove` gem is available
+* ~~Configure Webhooks to build this image on Docker Hub when a new version of
+  the `wordmove` gem is available~~ ✅
