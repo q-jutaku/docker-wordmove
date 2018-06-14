@@ -52,8 +52,8 @@ Run `sudo su` and use `wordmove` as the password.
 
 ## TODO
 
-[] Release the Alpine version of this image
-[x] Configure Webhooks to build this image on Docker Hub when a new version of
+- [ ] Release the Alpine version of this image (see: https://github.com/welaika/docker-wordmove/issues/3)
+- [x] Configure Webhooks to build this image on Docker Hub when a new version of
   the `wordmove` gem is available
 
 ## Credits 🙏🏻
