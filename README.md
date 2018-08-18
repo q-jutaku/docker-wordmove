@@ -8,6 +8,7 @@ Docker image to run [Wordmove](https://wptools.it/wordmove/).
 * openssh-server
 * curl
 * rsync
+* sshpass
 * wordmove
 * mysql-client-5.5
 * php5
