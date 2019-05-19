@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
   openssh-server \
   curl \
   rsync \
-  php \
+  php-cli \
   php-mysql \
   mysql-client
 
