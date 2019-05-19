@@ -3,36 +3,24 @@
 #
 
 # Pull base image.
-FROM ubuntu:14.04
+FROM ruby:2.6-slim
 
-MAINTAINER Simon Bland <simon.bland@bluewin.ch>
+LABEL maintainers.1="Simon Bland <simon.bland@bluewin.ch>"
+LABEL maintainers.2="Alessandro Fazzi <alessandro.fazzi@welaika.com>"
 
-RUN apt-get update
-RUN apt-get install -y \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
   openssh-server \
   curl \
   rsync \
-  php5 \
-  php5-mysql \
-  mysql-client-5.5 \
-  sshpass
-RUN \gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-RUN \curl -sSL https://get.rvm.io | bash -s latest
-RUN echo "source /etc/profile.d/rvm.sh" >> /etc/bash.bashrc
-RUN /bin/bash -c "source /etc/profile.d/rvm.sh \
-  && rvm install ruby --latest \
-  && gem install wordmove"
-ENV RUBYOPT="-KU -E utf-8:utf-8"
+  php \
+  php-mysql \
+  mysql-client
+
+RUN gem install wordmove
 RUN curl -o /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
 
-# WP-CLI requires to be executed as non-root, unless --allow-root is given
-# As Wordmove currently doesn't call WP-CLI with this flag, the image is executed with a non-root user
-RUN useradd wordmove && echo "wordmove:wordmove" | chpasswd && adduser wordmove sudo
-RUN mkdir -p /home/wordmove && chown wordmove:wordmove /home/wordmove
-USER wordmove
-RUN echo "alias sudo='sudo env PATH=\$PATH'" > /home/wordmove/.bashrc \
-    && chown wordmove:wordmove /home/wordmove/.bashrc
-
-WORKDIR /home/wordmove
+WORKDIR /html
 CMD ["/bin/bash"]
