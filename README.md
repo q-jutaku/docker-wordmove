@@ -5,23 +5,20 @@ Docker image to run [Wordmove](https://wptools.it/wordmove/).
 
 ## What's inside
 
-* ubuntu 14.04
+* Debian "stretch"
 * openssh-server
 * curl
 * rsync
-* sshpass
 * wordmove
 * mysql-client-5.5
-* php5
+* php7.0
 * wp-cli
-* ENV RUBYOPT="-KU -E utf-8:utf-8" (Fix for some mysql sync issues when using old
-  db adapter)
 
 ## How to use
 
 ### To run this image
 
-`docker run -it --rm -v ~/.ssh:/home/wordmove/.ssh:ro welaika/wordmove`
+`docker run -it --rm -v ~/.ssh:/root/.ssh:ro welaika/wordmove`
 
 This starts a shell, with `wordmove` available on the command-line.
 
@@ -45,12 +42,6 @@ welaika/wordmove` to get the latest version of Wordmove.
 
 * If `sql_adapter` is set to `wpcli`, then the movefile must be in the same
   directory as the WordPress directory
-
-## Advanced usage
-
-### To become root
-
-Run `sudo su` and use `wordmove` as the password.
 
 ## TODO
 
