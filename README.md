@@ -22,6 +22,8 @@ We ship 3 flavours of this container:
 * alpine
 * php5 (deprecated and unmaintained)
 
+> @since 28 November 2019 `latest` corresponds to `php7`
+
 `php7` and `php5` tags are based upon Debian stretch
 `alpine` tag is - really - based upon Alpine Linux 3.9
 
