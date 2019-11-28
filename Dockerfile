@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
   rsync \
   php-cli \
   php-mysql \
-  mysql-client
+  mariadb-client
 
 RUN gem install wordmove
 RUN curl -o /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
