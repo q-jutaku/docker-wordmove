@@ -25,7 +25,7 @@ We ship 3 flavours of this container:
 > @since 28 November 2019 `latest` corresponds to `php7`
 
 `php7` is based upon Debian Buster
-`alpine` tag is - really - based upon Alpine Linux 3.9
+`alpine` tag is - really - based upon Alpine Linux 3.10
 `php5` is based upon Ubuntu 14.04
 
 `php5` also ships with:
