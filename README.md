@@ -48,7 +48,7 @@ potentially breaking changes.
 
 ### To run this image
 
-`docker run -it --rm -v ~/.ssh:/home/wordmove/.ssh:ro welaika/wordmove`
+`docker run -it --rm -v ~/.ssh:/root/.ssh:ro welaika/wordmove`
 
 This starts a shell, with `wordmove` available on the command-line.
 
@@ -92,12 +92,6 @@ welaika/wordmove` to get the latest version of Wordmove.
 
 * If `sql_adapter` is set to `wpcli`, then the movefile must be in the same
   directory as the WordPress directory. See https://github.com/welaika/wordmove/issues/506
-
-## Advanced usage
-
-### To become root
-
-Run `sudo su` and use `wordmove` as the password.
 
 ## TODO
 
