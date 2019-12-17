@@ -24,4 +24,4 @@ RUN curl -o /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds
   && chmod +x /usr/local/bin/wp
 
 WORKDIR ${WORDMOVE_WORKDIR}
-CMD ["/bin/bash -l"]
+CMD ["/bin/bash", "-l"]
