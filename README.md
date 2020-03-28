@@ -25,7 +25,7 @@ We ship 3 flavours of this container:
 > @since 28 November 2019 `latest` corresponds to `php7`
 
 `php7` is based upon Debian Buster
-`alpine` tag is - really - based upon Alpine Linux 3.10
+`alpine` tag is based upon Alpine Linux 3.10
 `php5` is based upon Ubuntu 14.04
 
 `php5` also ships with:
@@ -34,19 +34,6 @@ We ship 3 flavours of this container:
 * ENV RUBYOPT="-KU -E utf-8:utf-8" (Fix for some mysql sync issues when using old
   db adapter)
 
-## Notable changes
-
-Since the first version of this container, which is now tagged as `php5`, we got some
-potentially breaking changes.
-
-* There is no `wordmove` user anymore. Now Wordmove supports to be invoked from root user,
-  so we've removed some complexity from the container build.
-  See https://github.com/welaika/wordmove/releases/tag/v2.5.1
-* `sshpass` has been removed. It's use is discouraged and deprecated by Wordmove, so it
-  is in this container. We warmly recommend to use safer approaches.
-* `RUBYOPT` is no more exported. It was solving a problem disappeared since using wp-cli
-  by default, so we've removed complexity from the build.
-
 ## How to use
 
 ### To run this image
@@ -54,6 +41,17 @@ potentially breaking changes.
 `docker run -it --rm -v ~/.ssh:/root/.ssh:ro welaika/wordmove`
 
 This starts a shell, with `wordmove` available on the command-line.
+
+### SSH permission caveat
+
+If you are on a Winodws or Linux host, then you could get permission errors
+while trying to use your ssh keys. To work around this problem we've
+a trick for you:
+
+`docker run -it --rm -v ~/.ssh:/tmp/.ssh:ro welaika/wordmove`
+
+Mounting `.ssh/` inside `/tmp/` will tell the image to automatically copy
+it over in `/root/` and to fix permissions.
 
 ### ENV
 
@@ -91,18 +89,18 @@ Compose, with the following four interconnected containers:
 Don't forget to replace `image: mfuezesi/wordmove` with `image:
 welaika/wordmove` to get the latest version of Wordmove.
 
-## Known limitations
+## Notable changes
 
-* If `sql_adapter` is set to `wpcli`, then the movefile must be in the same
-  directory as the WordPress directory. See https://github.com/welaika/wordmove/issues/506
+Since the first version of this container, which is now tagged as `php5`, we got some
+potentially breaking changes.
 
-## TODO
-
-- [x] Release the Alpine version of this image (see: https://github.com/welaika/docker-wordmove/issues/3)
-- [x] Configure Webhooks to build this image on Docker Hub when a new version of
-  the `wordmove` gem is available
-
-🎉
+* There is no `wordmove` user anymore. Now Wordmove supports to be invoked from root user,
+  so we've removed some complexity from the container build.
+  See https://github.com/welaika/wordmove/releases/tag/v2.5.1
+* `sshpass` has been removed. It's use is discouraged and deprecated by Wordmove, so it
+  is in this container. We warmly recommend to use safer approaches.
+* `RUBYOPT` is no more exported. It was solving a problem disappeared since using wp-cli
+  by default, so we've removed complexity from the build.
 
 ## Credits 🙏🏻
 
