@@ -13,6 +13,7 @@ Docker image to run [Wordmove](https://wptools.it/wordmove/).
 * php
 * wordmove
 * wp-cli
+* lftp
 
 ### TAG specific
 
