@@ -20,6 +20,7 @@ Docker image to run [Wordmove](https://wptools.it/wordmove/).
 We ship 3 flavours of this container:
 
 * php7
+* php73 (PHP version stuck at 7.3)
 * alpine
 * php5 (deprecated and unmaintained)
 
