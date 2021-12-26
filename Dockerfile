@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   wget \
   git \
+  ruby-dev \
+  build-essential \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
