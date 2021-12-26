@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM ruby:2.6-slim
+FROM ruby:2.7-slim
 
 LABEL maintainers.1="Simon Bland <simon.bland@bluewin.ch>"
 LABEL maintainers.2="Alessandro Fazzi <alessandro.fazzi@welaika.com>"
@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   apt-transport-https \
   ca-certificates \
   wget \
+  git \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -34,7 +35,8 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
   && rm -rf /var/lib/apt/lists/*
 
 
-RUN gem install wordmove --version 5.2.1
+RUN gem install wordmove --version 5.2.2
+
 RUN curl -o /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
 
