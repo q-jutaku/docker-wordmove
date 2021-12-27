@@ -14,21 +14,27 @@ Docker image to run [Wordmove](https://wptools.it/wordmove/).
 * wordmove
 * wp-cli
 * lftp
+* ruby
+
+Additionally we install `build-essential` and `ruby-dev` in order to be able to compile gems
+inside the image, thus enabling it to be used as CI image in certain scenarios.
 
 ### TAG specific
 
 We ship 3 flavours of this container:
 
-* php7
+* latest / php7
 * php73 (PHP version stuck at 7.3)
 * alpine
 * php5 (deprecated and unmaintained)
 
 > @since 28 November 2019 `latest` corresponds to `php7`
 
-`php7` is based upon Debian Buster
+`latest`/`php7` is based upon Debian Buster
 `alpine` tag is based upon Alpine Linux 3.10
 `php5` is based upon Ubuntu 14.04
+
+`latest`/`php7` also ships with preconfigured `en_US.UTF-8` locale.
 
 `php5` also ships with:
 
