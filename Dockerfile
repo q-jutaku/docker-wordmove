@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM ruby:2.7-slim
+FROM ruby:2.7.7-slim
 
 LABEL maintainers.1="Simon Bland <simon.bland@bluewin.ch>"
 LABEL maintainers.2="Alessandro Fazzi <alessandro.fazzi@welaika.com>"
@@ -51,7 +51,7 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-
+RUN gem install zeitwerk -v 2.6.18
 RUN gem install wordmove --version 5.2.2
 
 RUN wget -O /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
