@@ -52,7 +52,9 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
   && rm -rf /var/lib/apt/lists/*
 
 RUN gem install zeitwerk -v 2.6.18
-RUN gem install wordmove --version 5.2.2
+RUN gem install specific_install
+RUN gem specific_install -l 'https://github.com/q-jutaku/photocopier' -b v1.4.0-netssh7
+RUN gem specific_install -l 'https://github.com/q-jutaku/wordmove' -b v5.2.2-netssh7
 
 RUN wget -O /usr/local/bin/wp -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /usr/local/bin/wp
